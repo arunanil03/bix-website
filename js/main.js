@@ -215,9 +215,9 @@
         const x = hot[i] + (d ? hot[i + 2] / d : 0) * push;
         const y = hot[i + 1] + (d ? hot[i + 3] / d : 0) * push;
         const mix = clamp(x / w, 0, 1);
-        const r = Math.round(109 + 67 * mix);
-        const g = Math.round(124 + 9 * mix);
-        ctx.fillStyle = `rgba(${r},${g},255,${0.12 + e * 0.85})`;
+        const r = Math.round(100 + 84 * mix);
+        const g = Math.round(124 + 30 * mix);
+        ctx.fillStyle = `rgba(${r},${g},254,${0.12 + e * 0.85})`;
         ctx.beginPath();
         ctx.arc(x, y, 0.8 + e * 1.9, 0, Math.PI * 2);
         ctx.fill();

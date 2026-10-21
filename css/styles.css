@@ -19,12 +19,12 @@
   --text-muted: #a3aabb;
   --text-dim: #7c8396;
 
-  /* Brand accents — swap these to match the final logo colours */
-  --accent: #6d7cff;
-  --accent-2: #b085ff;
-  --accent-3: #ff8ad8;
+  /* Brand accents — sampled from the Bix logo */
+  --accent: #647cfe;
+  --accent-2: #b89afe;
+  --accent-3: #4c70f3;
   --signal: #d4ff4f;
-  --grad: linear-gradient(110deg, var(--accent) 0%, var(--accent-2) 55%, var(--accent-3) 100%);
+  --grad: linear-gradient(110deg, var(--accent-3) 0%, var(--accent) 40%, var(--accent-2) 100%);
 
   --radius-lg: 28px;
   --radius: 22px;
@@ -351,32 +351,16 @@ address {
   gap: 0.65rem;
   color: var(--text);
   text-decoration: none;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
-  background: var(--grad);
-  box-shadow: 0 6px 20px -6px rgba(140, 120, 255, 0.6);
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 46px;
 }
 
-.brand-mark svg {
-  width: 26px;
-  height: 26px;
-}
-
-.brand-name {
-  font-size: 1.08rem;
-}
-
-.brand-name span {
-  font-weight: 400;
-  color: var(--text-muted);
+.footer-brand .brand-logo {
+  height: 60px;
 }
 
 .nav-links {
@@ -541,7 +525,7 @@ address {
   width: min(1200px, 140vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(109, 124, 255, 0.3), rgba(176, 133, 255, 0.13) 45%, transparent 72%);
+  background: radial-gradient(closest-side, rgba(100, 124, 254, 0.3), rgba(184, 154, 254, 0.13) 45%, transparent 72%);
   animation: drift 22s var(--ease-in-out) infinite alternate;
 }
 
@@ -1016,15 +1000,15 @@ address {
   transition: border-color 0.4s var(--ease);
 }
 
-.svc--web { grid-column: span 7; }
-.svc--mobile { grid-column: span 5; }
+.svc--wide { grid-column: span 7; }
+.svc--half { grid-column: span 5; }
 
 .svc::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(520px circle at var(--mx) var(--my), rgba(109, 124, 255, 0.16), transparent 45%);
+  background: radial-gradient(520px circle at var(--mx) var(--my), rgba(100, 124, 254, 0.16), transparent 45%);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -1157,7 +1141,7 @@ address {
   position: relative;
   height: 88px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(109, 124, 255, 0.6), rgba(176, 133, 255, 0.4) 60%, rgba(255, 138, 216, 0.35));
+  background: linear-gradient(135deg, rgba(76, 112, 243, 0.65), rgba(100, 124, 254, 0.45) 55%, rgba(184, 154, 254, 0.4));
   overflow: hidden;
 }
 
@@ -1341,6 +1325,115 @@ address {
   font-weight: 500;
   letter-spacing: 0.05em;
   fill: #fff;
+}
+
+/* — AI assistant mock — */
+.m-ai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.m-ai .m-net {
+  flex: 1 1 260px;
+  max-width: 300px;
+}
+
+.m-chat {
+  flex: 0 0 248px;
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--line-strong);
+  background: rgba(12, 14, 20, 0.88);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.m-chat-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.m-chat-icon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--grad);
+  font-size: 0.66rem;
+  color: #fff;
+}
+
+.m-chat-tag {
+  margin-left: auto;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(212, 255, 79, 0.1);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--signal);
+}
+
+.m-msg {
+  max-width: 92%;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.m-msg--user {
+  justify-self: end;
+  border-bottom-right-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.m-msg--ai {
+  justify-self: start;
+  border: 1px solid rgba(184, 154, 254, 0.25);
+  border-bottom-left-radius: 4px;
+  background: linear-gradient(135deg, rgba(100, 124, 254, 0.26), rgba(184, 154, 254, 0.14));
+}
+
+.m-chat-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.m-chat-actions span {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+.m-chat-actions span:first-child {
+  border-color: var(--text);
+  background: var(--text);
+  color: #0a0b10;
+}
+
+/* Messages appear in turn, hold, then the conversation replays */
+.m-step {
+  opacity: 0;
+  animation: chat-step 8s var(--ease) infinite;
+  animation-delay: calc(var(--s) * 1.1s + 0.4s);
+}
+
+@keyframes chat-step {
+  0% { opacity: 0; transform: translateY(8px); }
+  6%, 80% { opacity: 1; transform: none; }
+  90%, 100% { opacity: 0; transform: none; }
 }
 
 /* — startup growth chart — */
@@ -2265,7 +2358,7 @@ address {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(109, 124, 255, 0.14), rgba(176, 133, 255, 0.04) 70%, transparent);
+  background: linear-gradient(90deg, rgba(100, 124, 254, 0.14), rgba(184, 154, 254, 0.04) 70%, transparent);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.55s var(--ease);
@@ -2408,8 +2501,8 @@ address {
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   background:
-    radial-gradient(120% 90% at 0% 0%, rgba(109, 124, 255, 0.26), transparent 55%),
-    radial-gradient(90% 90% at 100% 100%, rgba(255, 138, 216, 0.14), transparent 55%),
+    radial-gradient(120% 90% at 0% 0%, rgba(100, 124, 254, 0.26), transparent 55%),
+    radial-gradient(90% 90% at 100% 100%, rgba(184, 154, 254, 0.16), transparent 55%),
     var(--surface);
   overflow: hidden;
 }
@@ -2495,7 +2588,7 @@ address {
 /* 12. Contact -------------------------------------------------------------- */
 .contact {
   border-top: 1px solid var(--line);
-  background: radial-gradient(60% 50% at 85% 0%, rgba(109, 124, 255, 0.12), transparent 70%);
+  background: radial-gradient(60% 50% at 85% 0%, rgba(100, 124, 254, 0.12), transparent 70%);
 }
 
 .contact-grid {
@@ -2644,7 +2737,7 @@ address {
 .field textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(109, 124, 255, 0.06);
+  background: rgba(100, 124, 254, 0.06);
 }
 
 .field input:focus + label,
@@ -2858,13 +2951,19 @@ address {
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;
   }
+
+  .m-step,
+  .m-code span {
+    animation: none !important;
+    opacity: 1;
+  }
 }
 
 /* 15. Responsive ----------------------------------------------------------- */
 @media (max-width: 1100px) {
-  .svc--web { grid-column: span 12; }
   .svc,
-  .svc--mobile { grid-column: span 6; }
+  .svc--half { grid-column: span 6; }
+  .svc--wide { grid-column: span 12; }
 
   .ind {
     grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr);
@@ -2976,10 +3075,13 @@ address {
   .hero-canvas { opacity: 0.55; }
 
   .svc,
-  .svc--mobile,
-  .svc--web { grid-column: span 12; }
+  .svc--half,
+  .svc--wide { grid-column: span 12; }
 
   .svc { min-height: 0; }
+
+  .m-ai .m-net { display: none; }
+  .m-chat { flex-basis: 100%; max-width: 300px; }
 
   .m-browser-body { grid-template-columns: 1fr; }
   .m-code { display: none; }
